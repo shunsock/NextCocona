@@ -1,0 +1,59 @@
+---
+name: Publish to NuGet
+
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  DOTNET_NOLOGO: true
+  NUGET_SOURCE: https://api.nuget.org/v3/index.json
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - run: dotnet restore
+      - run: dotnet build -c Release --no-restore
+      - run: dotnet test -c Release --no-build
+
+      - name: Pack Cocona
+        run: >-
+          dotnet pack -c Release --no-build
+          -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+          --output ./artifacts ./src/Cocona/Cocona.csproj
+
+      - name: Pack Cocona.Core
+        run: >-
+          dotnet pack -c Release --no-build
+          -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+          --output ./artifacts ./src/Cocona.Core/Cocona.Core.csproj
+
+      - name: Pack Cocona.Lite
+        run: >-
+          dotnet pack -c Release --no-build
+          -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+          --output ./artifacts ./src/Cocona.Lite/Cocona.Lite.csproj
+
+      - name: Push to NuGet
+        run: >-
+          dotnet nuget push "./artifacts/*.nupkg"
+          --source ${{ env.NUGET_SOURCE }}
+          --api-key ${{ secrets.NUGET_API_KEY }}
+          --skip-duplicate
+
+      - name: Push symbols to NuGet
+        run: >-
+          dotnet nuget push "./artifacts/*.snupkg"
+          --source ${{ env.NUGET_SOURCE }}
+          --api-key ${{ secrets.NUGET_API_KEY }}
+          --skip-duplicate
