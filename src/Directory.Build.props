@@ -9,11 +9,11 @@
     <WarningsAsErrors>$(WarningsAsErrors);RS0030;Nullable</WarningsAsErrors>
 
     <!-- NuGet Package Information -->
-    <Description>Micro-framework for .NET console application. Cocona makes it easy and fast to build console applications on .NET.</Description>
-    <Authors>Mayuki Sawatari</Authors>
-    <Copyright>Copyright 2020-present Mayuki Sawatari</Copyright>
-    <PackageProjectUrl>https://github.com/mayuki/Cocona</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/mayuki/Cocona</RepositoryUrl>
+    <Description>Micro-framework for .NET console application. NextCocona makes it easy and fast to build console applications on .NET.</Description>
+    <Authors>shunsock</Authors>
+    <Copyright>Copyright 2020-present Mayuki Sawatari, 2026-present shunsock</Copyright>
+    <PackageProjectUrl>https://github.com/shunsock/NextCocona</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/shunsock/NextCocona</RepositoryUrl>
     <PackageIcon>icon.png</PackageIcon>
     <PackageTags>CommandLine CLI Framework Console</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

@@ -6,7 +6,8 @@
     <Nullable>enable</Nullable>
 
     <!-- NuGet Package Information -->
-    <Description>Micro-framework for .NET console application. Cocona makes it easy and fast to build console applications on .NET.</Description>
+    <PackageId>NextCocona</PackageId>
+    <Description>Micro-framework for .NET console application. NextCocona makes it easy and fast to build console applications on .NET.</Description>
   </PropertyGroup>
 
   <ItemGroup>

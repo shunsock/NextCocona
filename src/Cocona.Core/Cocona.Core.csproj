@@ -7,7 +7,8 @@
     <Nullable>enable</Nullable>
 
     <!-- NuGet Package Information -->
-    <Description>Core component for Cocona. Micro-framework for .NET console application.</Description>
+    <PackageId>NextCocona.Core</PackageId>
+    <Description>Core component for NextCocona. Micro-framework for .NET console application.</Description>
   </PropertyGroup>
 
   <ItemGroup Condition="('$(TargetFramework)' == 'netstandard2.0') Or ('$(TargetFramework)' == 'netstandard2.1')">
