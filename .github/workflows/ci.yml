@@ -21,6 +21,7 @@ jobs:
         with:
           dotnet-version: |
             8.0.x
+            10.0.x
 
       - run: dotnet restore
       - run: dotnet test -c Release --logger trx --results-directory ${{ github.workspace }}/test-results
