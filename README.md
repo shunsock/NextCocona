@@ -72,6 +72,7 @@ $ dotnet add package Cocona.Lite
 ```
 
 ## Requirements
+- .NET 10
 - .NET 8
 - .NET Standard 2.0, 2.1
 
