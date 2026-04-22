@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net10.0;net8.0</TargetFrameworks>
@@ -7,10 +7,11 @@
     <Nullable>enable</Nullable>
 
     <!-- NuGet Package Information -->
-    <Description>Core component for Cocona. Micro-framework for .NET console application.</Description>
+    <PackageId>NextCocona.Core</PackageId>
+    <Description>Core component for NextCocona. Micro-framework for .NET console application.</Description>
   </PropertyGroup>
 
-<ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="3.3.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

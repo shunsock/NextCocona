@@ -72,8 +72,8 @@ $ dotnet add package Cocona.Lite
 ```
 
 ## Requirements
-- .NET 6 (Required to use Minimal API)
-- .NET 5
+- .NET 10
+- .NET 8
 - .NET Standard 2.0, 2.1
 
 ## Getting Started
