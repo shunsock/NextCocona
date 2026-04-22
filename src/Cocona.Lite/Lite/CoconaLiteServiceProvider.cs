@@ -95,16 +95,10 @@ public class CoconaLiteServiceProvider : IServiceProvider, IDisposable, ICoconaS
     (IDisposable Scope, IServiceProvider ScopedServiceProvider) ICoconaServiceProviderScopeSupport.CreateScope(IServiceProvider serviceProvider)
         => (new NullDisposable(), serviceProvider);
 
-#if NET5_0_OR_GREATER || NETSTANDARD2_1
     (IAsyncDisposable Scope, IServiceProvider ScopedServiceProvider) ICoconaServiceProviderScopeSupport.CreateAsyncScope(IServiceProvider serviceProvider)
         => (new NullDisposable(), serviceProvider);
-#endif
 
-    private class NullDisposable :
-        IDisposable
-#if NET5_0_OR_GREATER || NETSTANDARD2_1
-        , IAsyncDisposable
-#endif
+    private class NullDisposable : IDisposable, IAsyncDisposable
     {
         public void Dispose() {}
         public ValueTask DisposeAsync() => default;

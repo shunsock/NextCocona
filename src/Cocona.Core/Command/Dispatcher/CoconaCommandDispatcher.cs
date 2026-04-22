@@ -38,13 +38,8 @@ public class CoconaCommandDispatcher : ICoconaCommandDispatcher
 
             var dispatchAsync = _dispatcherPipelineBuilder.Build();
 
-#if NET5_0_OR_GREATER || NETSTANDARD2_1
             var (scope, serviceProvider) = _serviceProviderScopeSupport.CreateAsyncScope(_serviceProvider);
             await using (scope)
-#else
-                var (scope, serviceProvider) = _serviceProviderScopeSupport.CreateScope(_serviceProvider);
-                using (scope)
-#endif
             {
 
                 // Activate a command type.
@@ -77,11 +72,9 @@ public class CoconaCommandDispatcher : ICoconaCommandDispatcher
                     {
                         switch (commandInstance)
                         {
-#if NET5_0_OR_GREATER || NETSTANDARD2_1
                             case IAsyncDisposable asyncDisposable:
                                 await asyncDisposable.DisposeAsync().ConfigureAwait(false);
                                 break;
-#endif
                             case IDisposable disposable:
                                 disposable.Dispose();
                                 break;
