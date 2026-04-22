@@ -12,19 +12,12 @@ internal class NullabilityInfoContextHelper
         Nullable = 2,
     }
 
-#if NET6_0_OR_GREATER
-        private readonly NullabilityInfoContext _context = new NullabilityInfoContext();
+    private readonly NullabilityInfoContext _context = new NullabilityInfoContext();
 
-        public NullabilityState GetNullabilityState(ParameterInfo parameterInfo)
-        {
-            return (NullabilityState)_context.Create(parameterInfo).ReadState;
-        }
-#else
     public NullabilityState GetNullabilityState(ParameterInfo parameterInfo)
     {
-        return GetNullabilityState_Compat(parameterInfo);
+        return (NullabilityState)_context.Create(parameterInfo).ReadState;
     }
-#endif
 
     internal NullabilityState GetNullabilityState_Compat(ParameterInfo parameterInfo)
     {

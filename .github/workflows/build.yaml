@@ -31,9 +31,8 @@ jobs:
       with:
         source-url: ${{ env.AZURE_ARTIFACTS_FEED_URL }}
         dotnet-version: |
-          3.1.x
-          6.0.x
           8.0.x
+          10.0.x
       env:
         NUGET_AUTH_TOKEN: ${{ steps.op-load-secret.outputs.NUGET_AUTH_TOKEN }}
 

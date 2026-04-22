@@ -11,11 +11,9 @@ public class CoconaServiceProviderScopeSupport : ICoconaServiceProviderScopeSupp
         return (scope, scope.ServiceProvider);
     }
 
-#if NET5_0_OR_GREATER || NETSTANDARD2_1
     public (IAsyncDisposable Scope, IServiceProvider ScopedServiceProvider) CreateAsyncScope(IServiceProvider serviceProvider)
     {
         var scope = serviceProvider.CreateAsyncScope();
         return (scope, scope.ServiceProvider);
     }
-#endif
 }
