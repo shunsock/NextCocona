@@ -17,6 +17,7 @@
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
+!docs/release/
 [Rr]eleases/
 x64/
 x86/
